@@ -1,8 +1,9 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: [
-      'react-hot-loader/patch',
+//      'react-hot-loader/patch',
     './src/index.js'
   ],
   module: {
@@ -18,8 +19,8 @@ module.exports = {
       extensions: ['*', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
+    path: path.resolve(__dirname + '/dist'),
+    publicPath: '/public/',
     filename: 'bundle.js'
   },
     plugins: [
