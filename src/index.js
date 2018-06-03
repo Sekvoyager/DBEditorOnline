@@ -14,6 +14,9 @@ class StartPage extends React.Component {
         this.state = {
             inOrUp: inOrUp
         };
+
+        this.switchToIn = this.switchToIn.bind(this);
+        this.switchToUp = this.switchToUp.bind(this);
     }
 
     switchToUp(){
@@ -25,37 +28,23 @@ class StartPage extends React.Component {
     }
 
     render(){
-        return (
-            {inOrUp &&
+       if (this.state.inOrUp){
+           return(
                 <div>
-                    <button onClick={this.switchToIn}>Sign In</button>
-                    <SignIn/>
-                </div>})
-
-        return (
-            {this.state.inOrUp &&
-            <div>
-                <button onClick={this.switchToIn}>Sign In</button>
-                <SignIn/>
-            </div>})
-        <button onClick={this.switchToUp}>Sign Up</button>;
-        if (this.state.inOrUp){
-            return(
-                <div>
-                </div>
-            );
-        }
-        else {
-            return(
-                <div>
+                    <button onClick={this.switchToUp}>Sign Up</button>
                     <SignUp/>
                 </div>
-            );
-        }
+           )}
+       else {
+           return(
+               <div>
+                   <button onClick={this.switchToIn}>Sign In</button>
+                   <SignIn/>
+               </div>
+       )}
     }
-
-
 }
+
 ReactDOM.render(
     <div>
         <StartPage/>
